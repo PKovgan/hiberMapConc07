@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<Console name="CONSOLE" target="SYSTEM_OUT">
+			<PatternLayout pattern="[%p] [%c] [%d{DATE}] %n [%m] %n %n"/>
+		</Console>
+		<RollingFile name="app-log" fileName="/logs/db.rlog" filePattern="/logs/db.rlog.%d{yyyy-MM-dd}" append="true">
+			<PatternLayout pattern="[%d{DATE}]:%m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level="all">
+			<AppenderRef ref="app-log"/>
+		</Root> 
+	</Loggers>
+</Configuration>
